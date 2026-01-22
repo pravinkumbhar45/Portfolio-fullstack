@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -13,26 +12,20 @@ import Contact from "./pages/Contact";
 function App() {
   return (
     <Router>
-      <div className="app-container">
-        <Sidebar />
+      <Header />
 
-        <div className="main-content">
-          <Header />
+      <main style={{ padding: "40px", minHeight: "calc(100vh - 140px)" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/resume" element={<Resume />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
 
-          <div className="page-content container-fluid">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </div>
-
-          <Footer />
-        </div>
-      </div>
+      <Footer />
     </Router>
   );
 }

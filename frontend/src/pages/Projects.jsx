@@ -1,45 +1,24 @@
-import { useEffect, useState } from "react";
-import { fetchProjects } from "../services/api";
+import ProjectCard from "../components/ProjectCard";
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
-
-  useEffect(() => {
-    fetchProjects()
-      .then(res => setProjects(res.data))
-      .catch(err => console.error(err));
-  }, []);
-
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">🚀 Projects</h2>
+    <section style={{ padding: "40px", maxWidth: "900px", margin: "auto" }}>
+      <h2 style={{ marginBottom: "24px" }}>Projects</h2>
 
-      <div className="row">
-        {projects.map(project => (
-          <div className="col-md-6 mb-4" key={project.id}>
-            <div className="card h-100 shadow">
-              <div className="card-body">
-                <h5>{project.title}</h5>
-                <p>{project.description}</p>
-                <p>
-                  <strong>Tech:</strong> {project.tech_stack}
-                </p>
+      <ProjectCard
+        title="Portfolio Full Stack App"
+        description="Full stack portfolio with React, Node.js, MySQL."
+        tech={["React", "Node.js", "Express", "MySQL"]}
+        github="https://github.com/YOUR_GITHUB_USERNAME/portfolio-fullstack"
+      />
 
-                <a href={project.github_url} target="_blank" className="btn btn-sm btn-dark me-2">
-                  GitHub
-                </a>
-
-                {project.live_url && (
-                  <a href={project.live_url} target="_blank" className="btn btn-sm btn-success">
-                    Live
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+      <ProjectCard
+        title="Resume Upload System"
+        description="Resume upload & fetch system using MySQL backend."
+        tech={["Node.js", "Express", "Multer", "MySQL"]}
+        github="https://github.com/YOUR_GITHUB_USERNAME/resume-upload"
+      />
+    </section>
   );
 };
 

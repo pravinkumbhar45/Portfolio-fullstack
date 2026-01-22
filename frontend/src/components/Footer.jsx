@@ -1,9 +1,22 @@
-const Footer = () => {
+function Footer() {
   return (
-    <footer className="text-center text-muted py-3">
-      © {new Date().getFullYear()} Pravin Kumbhar · Java Full Stack Developer
+    <footer style={{
+      borderTop: "1px solid #e5e7eb",
+      padding: "20px",
+      textAlign: "center",
+      color: "#6b7280"
+    }}>
+      © 2026 Pravin Kumbhar ·{" "}
+      <a
+        href="https://www.linkedin.com/"
+        target="_blank"
+        rel="noreferrer"
+        style={{ color: "#2563eb" }}
+      >
+        LinkedIn
+      </a>
     </footer>
   );
-};
+}
 
 export default Footer;

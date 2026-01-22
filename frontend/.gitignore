@@ -12,3 +12,11 @@ backend/*.pdf
 # Build output
 dist/
 build/
+
+# uploads
+backend/uploads/
+backend/*.pdf
+
+# node
+node_modules/
+.env
